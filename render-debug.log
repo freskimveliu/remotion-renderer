@@ -1,0 +1,58 @@
+[2026-03-18T21:11:30.248Z] === RENDER REQUEST ===
+[2026-03-18T21:11:30.250Z] Raw body
+{
+  "template": "html-animator",
+  "inputProps": {
+    "templateUrl": "https://fresk.dev.cocon.center/campaigns/9/19/_template/a15513c5-60d8-4db8-9037-a79453c55183/index.html?index=0",
+    "fields": [
+      {
+        "placeholder": "Cover|media",
+        "value": null
+      },
+      {
+        "placeholder": "Additional|inputText",
+        "value": null
+      },
+      {
+        "placeholder": "Headline|textarea",
+        "value": null
+      }
+    ],
+    "styles": {
+      "primary_color": "f25e7a",
+      "secondary_color": "022873",
+      "tertiary_color": "05c7f2"
+    },
+    "logo": null
+  },
+  "width": 1080,
+  "height": 1350,
+  "fps": 30,
+  "durationInSeconds": 8
+}
+[2026-03-18T21:11:30.252Z] Parsed template: html-animator
+[2026-03-18T21:11:30.252Z] Parsed inputProps
+{
+  "templateUrl": "https://fresk.dev.cocon.center/campaigns/9/19/_template/a15513c5-60d8-4db8-9037-a79453c55183/index.html?index=0",
+  "fields": [
+    {
+      "placeholder": "Cover|media",
+      "value": null
+    },
+    {
+      "placeholder": "Additional|inputText",
+      "value": null
+    },
+    {
+      "placeholder": "Headline|textarea",
+      "value": null
+    }
+  ],
+  "styles": {
+    "primary_color": "f25e7a",
+    "secondary_color": "022873",
+    "tertiary_color": "05c7f2"
+  },
+  "logo": null
+}
+[2026-03-18T21:11:30.254Z] InputProps validation FAILED: fields.0.value: Expected string, received null; fields.1.value: Expected string, received null; fields.2.value: Expected string, received null
