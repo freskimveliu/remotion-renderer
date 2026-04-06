@@ -1,4 +1,11 @@
 import "dotenv/config";
+
+// Dev only: accept self-signed certs from local HTTPS endpoints (e.g. fresk.dev.cocon.center).
+// Must be set before any module that initiates a TLS connection is imported.
+if (process.env.NODE_TLS_REJECT_UNAUTHORIZED === undefined) {
+  process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+}
+
 import express from "express";
 import path from "path";
 

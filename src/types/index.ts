@@ -52,12 +52,18 @@ export const HtmlAnimatorPropsSchema = z.object({
   ]).default("field-reveal"),
 });
 
+export const VideoOverlayPropsSchema = z.object({
+  url: z.string().min(1),              // iframe template URL — renders text/logo overlays
+  originalVideo: z.string().min(1),    // direct video file URL — rendered natively via <OffthreadVideo>
+});
+
 // --- Inferred types ---
 
 export type TextOverlayProps = z.infer<typeof TextOverlayPropsSchema>;
 export type ImageSlideshowProps = z.infer<typeof ImageSlideshowPropsSchema>;
 export type PostPromoProps = z.infer<typeof PostPromoPropsSchema>;
 export type HtmlAnimatorProps = z.infer<typeof HtmlAnimatorPropsSchema>;
+export type VideoOverlayProps = z.infer<typeof VideoOverlayPropsSchema>;
 
 // --- Screenshot request schema ---
 
@@ -73,7 +79,7 @@ export type ScreenshotRequest = z.infer<typeof ScreenshotRequestSchema>;
 // --- Render request schema ---
 
 export const RenderRequestSchema = z.object({
-  template: z.enum(["text-overlay", "image-slideshow", "post-promo", "html-animator"]),
+  template: z.enum(["text-overlay", "image-slideshow", "post-promo", "html-animator", "video-overlay"]),
   inputProps: z.record(z.unknown()),
   width: z.number().int().min(100).max(3840).default(1080),
   height: z.number().int().min(100).max(3840).default(1080),
@@ -130,4 +136,5 @@ export const TEMPLATE_TO_COMPOSITION: Record<string, string> = {
   "image-slideshow": "ImageSlideshow",
   "post-promo": "PostPromo",
   "html-animator": "HtmlAnimator",
+  "video-overlay": "VideoOverlay",
 };

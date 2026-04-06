@@ -5,6 +5,7 @@ import { ImageSlideshow } from "./templates/ImageSlideshow";
 import { PostPromo } from "./templates/PostPromo";
 import { HtmlAnimator } from "./templates/HtmlAnimator";
 import { HtmlScreenshot } from "./templates/HtmlScreenshot";
+import { VideoOverlay } from "./templates/VideoOverlay";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -82,6 +83,18 @@ export const RemotionRoot: React.FC = () => {
         height={1080}
         defaultProps={{
           html: "<h1>Hello World</h1>",
+        }}
+      />
+      <Composition
+        id="VideoOverlay"
+        component={VideoOverlay}
+        durationInFrames={240}
+        fps={30}
+        width={1080}
+        height={1350}
+        defaultProps={{
+          url: "https://example.com/template.html",
+          originalVideo: "https://example.com/video.mp4",
         }}
       />
     </>

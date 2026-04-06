@@ -21,6 +21,7 @@ import {
   ImageSlideshowPropsSchema,
   PostPromoPropsSchema,
   HtmlAnimatorPropsSchema,
+  VideoOverlayPropsSchema,
 } from "../../types";
 import { jobQueue } from "../queue";
 
@@ -58,6 +59,7 @@ function validateInputProps(
     "image-slideshow": ImageSlideshowPropsSchema,
     "post-promo": PostPromoPropsSchema,
     "html-animator": HtmlAnimatorPropsSchema,
+    "video-overlay": VideoOverlayPropsSchema,
   };
 
   const schema = schemas[template];
