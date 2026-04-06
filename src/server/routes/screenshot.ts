@@ -13,8 +13,29 @@ const outputDir = path.resolve(process.env.OUTPUT_DIR || "./public/output");
 
 fs.mkdirSync(outputDir, { recursive: true });
 
+const ONE_HOUR_MS = 60 * 60 * 1000;
+
+const cleanupOldFiles = () => {
+  try {
+    const files = fs.readdirSync(outputDir);
+    const now = Date.now();
+
+    for (const file of files) {
+      const filePath = path.join(outputDir, file);
+      const stat = fs.statSync(filePath);
+
+      if (now - stat.mtimeMs > ONE_HOUR_MS) {
+        fs.unlinkSync(filePath);
+      }
+    }
+  } catch {
+    // Ignore cleanup errors
+  }
+};
+
 // POST /api/screenshot
 router.post("/", async (req, res) => {
+  cleanupOldFiles();
   const parsed = ScreenshotRequestSchema.safeParse(req.body);
 
   if (!parsed.success) {
